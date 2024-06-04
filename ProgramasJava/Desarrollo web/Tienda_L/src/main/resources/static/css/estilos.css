@@ -7,9 +7,11 @@ body{
     background-color: bisque;
     font-family: sans-serif;
 
+
+
 }
 
-header{
+.header{
 
     position: fixed;
     background-color: #076af0;
@@ -17,6 +19,69 @@ header{
     left: 0;
     height: 100px;
     width: 100%;
+
+}
+
+.nav{
+
+    display: flex;
+    justify-content: space-between;
+    max-width: 992px;
+    margin: 0 auto;
+
+
+}
+
+.logo{
+
+font-size: 30px; 
+font-weight: bold;
+padding: 0 40px;
+line-height: 100px;
+
+
+}
+
+
+.nav-menu{
+
+    display: flex;
+    margin-right: 40px;
+    list-style: none;
+    
+
+}
+
+.nav-menu-item{
+
+    font-size: 18px;
+    margin: 0 10px;
+    line-height: 100px;
+}
+
+.nav-link{
+
+    color: white;
+    text-decoration: none;
+
+}
+
+
+
+.nav-menu-link{
+
+    padding: 8px 12px;
+    border-radius: 12px;
+
+
+}
+
+
+.nav-menu-link:hover{
+
+    background-color: #024070;
+    transition: 0.5s;
+
 
 }
 
@@ -34,6 +99,7 @@ aside{
 
 section{
 
+    overflow-y: scroll;
     position:fixed;
     top: 100px;
     left: 20%;
@@ -45,7 +111,7 @@ section{
 }
 
 footer{
-    
+
     position:fixed;
     bottom: 0;
     left: 0;
@@ -57,22 +123,9 @@ footer{
 
 }
 
-.nav-link{ 
-    
-     padding: 8px 12px;
-     border-radius: 10px;
-     text-decoration: none;
-     
-     
-} 
 
 
-.nav-link:hover{ 
-    
-    background-color: #024070;
-    
-     
-} 
+
 
 
 
