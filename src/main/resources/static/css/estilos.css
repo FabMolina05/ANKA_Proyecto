@@ -1,0 +1,72 @@
+.body-color{
+    
+    background-color: #1D1D1D;
+    
+}
+
+.btn-color{
+    
+    background-color:#FFC149; 
+    
+}
+
+
+.nav-link-color{
+    
+    color: #FFF2CE; 
+    
+}
+
+.footer-color{
+    
+      background-color: #1D1D1D;
+    
+}
+
+footer-text{
+    
+      color: #FFC149; 
+    
+    
+}
+
+.fig-color{
+    
+      color: #FFF2CE; 
+      text-align: center;
+    font-size: 14px;
+   
+    
+}
+
+
+
+.nav-color{
+    
+     background-color: #1D1D1D;
+    
+}
+
+
+
+figure {
+    display: inline-block;
+  
+    margin: 20px; /* adjust as needed */
+}
+figure img {
+    vertical-align: top;
+}
+
+
+.justify-container{
+    
+    align-content: center;
+    
+    
+}
+
+.end-content{
+    text-align: end;
+    
+}

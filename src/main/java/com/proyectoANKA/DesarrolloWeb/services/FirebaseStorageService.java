@@ -7,14 +7,14 @@ public interface FirebaseStorageService {
 
     public String cargaImagen(MultipartFile archivoLocalCliente, String carpeta, Long id);
 
-    final String BucketName = "anka-6fbfc.appspot.com";
+    final String BucketName = "anka-c5d0c.appspot.com";
 
-    //Esta es la ruta básica de este proyecto Techshop
-    final String rutaSuperiorStorage = "ANKA";
+    
+    final String rutaSuperiorStorage = "Anka";
 
-    //Ubicación donde se encuentra el archivo de configuración Json
+    
     final String rutaJsonFile = "firebase";
 
-    //El nombre del archivo Json
-    final String archivoJsonFile = "anka-6fbfc-firebase-adminsdk-9fqwi-b52e774402.json";
+   
+    final String archivoJsonFile = "anka-c5d0c-firebase-adminsdk-8m23q-a59d9817f3";
 }
