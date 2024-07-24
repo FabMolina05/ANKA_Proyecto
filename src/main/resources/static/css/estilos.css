@@ -70,3 +70,82 @@ figure img {
     text-align: end;
     
 }
+
+.main-header-back-ceramica{
+    
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/anka-c5d0c.appspot.com/o/Anka%2Fceramica%2Fmainheader.jpeg?alt=media&token=8da438e9-0e24-483f-a750-1fa3a6057a5d);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 40vh;
+    
+        
+}
+
+.main-header-back-bisuteria{
+    
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/anka-c5d0c.appspot.com/o/Anka%2Fbisuteria%2FmainHeaderBi.jpeg?alt=media&token=c8c350aa-30a2-4b6f-89a5-b62e3eded75a);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 40vh;
+    
+        
+}
+
+.main-header-back-arte{
+    
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/anka-c5d0c.appspot.com/o/Anka%2Farte%2Farte.jpeg?alt=media&token=5c73405d-4cdd-4f34-9ec3-9ae04a0a6599);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 40vh;
+    
+        
+}
+
+.mini-box{
+   
+   border-radius: 20px;
+  border: 2px solid white;
+  padding: 5px; 
+  width: 8%;
+  font-size: 10px;
+  
+ 
+    
+}
+
+.font{
+    
+    font-family:"Tahoma", sans-serif, serif;
+    font-weight: bold;
+    font-size: 60px;
+    margin-bottom:  0;
+}
+
+.catalogo{
+    
+    font-family:"Tahoma", sans-serif, serif;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    padding: 5%;
+}
+
+.card-img-custom{
+    
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 15vh;
+    width: 15vh;
+}
+
+.font-card{
+    
+    font-family:"Tahoma", sans-serif, serif;
+  
+    
+    
+}
