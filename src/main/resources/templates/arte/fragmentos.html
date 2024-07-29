@@ -5,8 +5,8 @@
 
     <head th:replace="~{layout/plantilla :: head}">
         <title>Anka</title>
-        <meta charset="UTF-8"/>
-
+        <meta charset="UTF-8"/>        
+        <script src="/js/rutinas.js" type="text/javascript"></script>
     </head>
     <body class="body-color">
 
@@ -18,16 +18,17 @@
 
 
                 <div>
-                    <p class="mini-box text-white">ANKA Collection</p>
+                    <p class="mini-box text-white" style="text-align: center">ANKA Collection</p>
                 </div>
                 <div class="">
                     <p class="text-white font ">ARTE</p>
-                    <p class="text-white" style="padding-left: 9px; font-size: 15px"> Una colección perfecta para los amantes del arte de la pintura y el expresionismo </p>
+                    <p class="text-white" style="padding-left: 9px; font-size: 20px"> Una colección perfecta para los amantes del arte de la pintura y el expresionismo</p>
 
                 </div>
 
             </div>
-        </section>            
+        </section> 
+
         <section th:fragment="carrito" class="mb-4">
             <div class="row row-cols-3 p-4 justify-content-center">
                 <div th:each="p : ${artes}" 
@@ -35,7 +36,30 @@
 
                     <div class="d-flex align-items-center px-2 m-1">
 
-                        <img class="card-img-custom my-2" th:src="${p.rutaImagen}" alt="imageArte"></img>
+
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" th:attr="data-nombre=${p.nombre}, data-imagen=${p.rutaImagen}, data-descripcion=${p.descripcion}">
+                            <img class="card-img-custom my-2" th:src="${p.rutaImagen}" alt="imageArte"></img>                            
+                        </button>
+
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">    
+                                        <p>
+                                            <img class="card-img-modal" id="modal-image" alt="" style="display: block; margin: 0 auto;"></img>
+                                        </p>
+                                        <p id="modal-body-descripcion" style="text-align: center"></p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-color" data-bs-dismiss="modal">Cerrar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                         <p class="font-card p-3">[[${p.nombre}]]</p>
 
@@ -43,26 +67,25 @@
                     </div>
                     <div class="card-body font-card">
 
-                        <p> [[${p.descripcion}]]</p>
-
-
-
                     </div>
 
                     <div class="card-footer font-card bg-transparent">
-                        <p>$ [[${p.precio}]]</p>
+                        <p>$[[${p.precio}]]</p>
 
                         <a th:href="@{/compra/listado}" class="btn btn-color my-3">Añadir al carrito</a>
+
+                        <button type="button" class="btn btn-color my-3" data-bs-toggle="modal" data-bs-target="#exampleModal" th:attr="data-nombre=${p.nombre}, data-imagen=${p.rutaImagen}, data-descripcion=${p.descripcion}">
+                            Ver más
+                        </button>
+
                     </div>
-
-
-
-
 
                 </div>
 
             </div>
         </section>
+
+
 
 
 

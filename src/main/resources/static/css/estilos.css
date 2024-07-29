@@ -1,57 +1,61 @@
 .body-color{
-    
+
     background-color: #1D1D1D;
-    
+
 }
 
 .btn-color{
-    
-    background-color:#FFC149; 
-    
+
+    background-color:#FFC149;
+
 }
 
 
 .nav-link-color{
-    
-    color: #FFF2CE; 
-    
+
+    color: #FFF2CE;
+
+}
+
+.custom-link {
+    font-size: 18px;
 }
 
 .footer-color{
-    
-      background-color: #1D1D1D;
-    
+
+    background-color: #1D1D1D;
+
 }
 
 footer-text{
-    
-      color: #FFC149; 
-    
-    
+
+    color: #FFC149;
+
+
 }
 
 .fig-color{
-    
-      color: #FFF2CE; 
-      text-align: center;
+
+    color: #FFF2CE;
+    text-align: center;
     font-size: 14px;
-   
-    
+
+
 }
 
 
 
 .nav-color{
-    
-     background-color: #1D1D1D;
-    
+
+    background-color: #1D1D1D;
+
 }
 
 
 
 figure {
     display: inline-block;
-  
+
     margin: 20px; /* adjust as needed */
 }
 figure img {
@@ -60,64 +64,60 @@ figure img {
 
 
 .justify-container{
-    
+
     align-content: center;
-    
-    
+
+
 }
 
 .end-content{
     text-align: end;
-    
+
 }
 
 .main-header-back-ceramica{
-    
+
     background-image: url(https://firebasestorage.googleapis.com/v0/b/anka-c5d0c.appspot.com/o/Anka%2Fceramica%2Fmainheader.jpeg?alt=media&token=8da438e9-0e24-483f-a750-1fa3a6057a5d);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 40vh;
-    
-        
+
+
 }
 
 .main-header-back-bisuteria{
-    
+
     background-image: url(https://firebasestorage.googleapis.com/v0/b/anka-c5d0c.appspot.com/o/Anka%2Fbisuteria%2FmainHeaderBi.jpeg?alt=media&token=c8c350aa-30a2-4b6f-89a5-b62e3eded75a);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 40vh;
-    
-        
+
+
 }
 
 .main-header-back-arte{
-    
+
     background-image: url(https://firebasestorage.googleapis.com/v0/b/anka-c5d0c.appspot.com/o/Anka%2Farte%2Farte.jpeg?alt=media&token=5c73405d-4cdd-4f34-9ec3-9ae04a0a6599);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 40vh;
-    
-        
+
+
 }
 
 .mini-box{
-   
-   border-radius: 20px;
-  border: 2px solid white;
-  padding: 5px; 
-  width: 8%;
-  font-size: 10px;
-  
- 
-    
+    border-radius: 20px;
+    border: 2px solid white;
+    padding: 5px;
+    width: 8%;
+    font-size: 10px;
 }
 
 .font{
-    
+
     font-family:"Tahoma", sans-serif, serif;
     font-weight: bold;
     font-size: 60px;
@@ -125,7 +125,7 @@ figure img {
 }
 
 .catalogo{
-    
+
     font-family:"Tahoma", sans-serif, serif;
     font-weight: bold;
     color: white;
@@ -134,18 +134,64 @@ figure img {
 }
 
 .card-img-custom{
-    
+
     background-position: left;
     background-repeat: no-repeat;
     background-size: cover;
     height: 15vh;
     width: 15vh;
+    border-radius: 10px;
+
+}
+
+.card-img-modal{
+
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 30vh;
+    width: 30vh;
+    border-radius: 10px;
+
 }
 
 .font-card{
-    
     font-family:"Tahoma", sans-serif, serif;
-  
-    
-    
+}
+
+.aboutus{
+
+    font-size: 48px;
+    font-family:"Tahoma", sans-serif, serif;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    padding: 1%;
+
+}
+
+.center {
+    text-align: center;
+}
+
+.main-header-back-aboutus{
+
+    position: relative;
+    background-image: url(https://img.freepik.com/free-photo/nail-polish-texture_23-2148111082.jpg?t=st=1722190565~exp=1722194165~hmac=1060376e9de575489a12f7216e0f78c7a59e5aa97a812340e3a872dad135cabd&w=1380);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 70vh;
+
+}
+
+.main-header-back-aboutus::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
 }
