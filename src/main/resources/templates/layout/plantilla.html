@@ -120,6 +120,34 @@
                     </div>
                 </div>
         </footer>
+        
+        <section th:fragment="banner">
+
+            <div class=" banner-custom d-flex flex-column justify-content-end px-4 m-1">
+                <div>
+                    <p class="mini-box-banner "  style="color: #D39DBC">NUEVO</p>
+                </div>
+                <div>
+                    <p class="text-white font ">Obra de Arte</p>
+                    <p class="text-white" style="padding-left: 9px; font-size: 15px">Un vistaso a la imaginacion</p>
+                    <a class="btn btn-color my-2 font-card" style="font-size: 25px;" th:href="@{/arte/4}">Ver más<i class="fa-solid fa-circle-plus"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section th:fragment="searchBar">
+
+            <div class="container-fluid justify-content-center">
+                <div class="search-custom d-flex justify-content-center align-items-center" >
+                    <form action="/query" method="POST">
+                        <input class="search-color" type="text" placeholder="Search.." name="search">
+
+                    </form>
+                    <i class="fa fa-search"></i>
+                </div>
+
+            </div>
+        </section>
     </body>
 
 
