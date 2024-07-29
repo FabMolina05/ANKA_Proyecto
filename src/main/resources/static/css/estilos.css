@@ -221,3 +221,24 @@ figure img {
 ::placeholder {
   color:#FFC149 ;
 }
+
+.banner-custom{
+
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/anka-c5d0c.appspot.com/o/Anka%2Farte%2Farte4.jpeg?alt=media&token=dee020ba-4cb9-44f8-829e-871aafef4084);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 50vh;
+    
+
+
+}
+
+.mini-box-banner {
+    
+    border-radius: 20px;
+    border: 2px solid #D39DBC;
+    padding: 5px;
+    width: 6%;
+    font-size: 14px;
+}
