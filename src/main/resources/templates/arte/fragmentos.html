@@ -72,9 +72,25 @@
                     <div class="card-footer font-card bg-transparent">
                         <p>$[[${p.precio}]]</p>
 
-                        <a th:href="@{/compra/listado}" class="btn btn-color my-3">Añadir al carrito</a>
+                        <button class="btn btn-color my-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" th:attr="data-nombre=${p.nombre}, data-imagen=${p.rutaImagen}, data-descripcion=${p.descripcion}">
+                            Añadir al carrito</button>
 
-                        <button type="button" class="btn btn-color my-3" data-bs-toggle="modal" data-bs-target="#exampleModal" th:attr="data-nombre=${p.nombre}, data-imagen=${p.rutaImagen}, data-descripcion=${p.descripcion}">
+                        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                            <div class="offcanvas-header">
+                                <h5 class="offcanvas-title"  id="offcanvasRightLabel">CARRITO</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <p>
+                                    <img class="card-img-modal" id="offcanvas-image" alt="" style="display: block; margin: 0 auto;"></img>
+                                </p>
+                            </div>
+                            <button type="button" class="btn btn-color my-3" data-bs-dismiss="offcanvas">Continuar con la compra</button>
+                        </div>
+
+
+
+                        <button type="button" class="btn btn-color" data-bs-toggle="modal" data-bs-target="#exampleModal" th:attr="data-nombre=${p.nombre}, data-imagen=${p.rutaImagen}, data-descripcion=${p.descripcion}">
                             Ver más
                         </button>
 
