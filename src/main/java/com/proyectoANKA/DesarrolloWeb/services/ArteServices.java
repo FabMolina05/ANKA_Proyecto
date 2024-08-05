@@ -20,6 +20,7 @@ public interface ArteServices  {
     
         public void  delete(Arte categoria);
 
-
+    public List<Arte>metodoSQL(String nombreInf);
+    
     
 }

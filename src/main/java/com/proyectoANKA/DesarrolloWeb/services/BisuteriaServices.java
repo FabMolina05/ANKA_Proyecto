@@ -4,6 +4,7 @@
  */
 package com.proyectoANKA.DesarrolloWeb.services;
 
+import com.proyectoANKA.DesarrolloWeb.domain.Arte;
 import com.proyectoANKA.DesarrolloWeb.domain.Bisuteria;
 import java.util.List;
 
@@ -21,5 +22,6 @@ public interface BisuteriaServices  {
         public void  delete(Bisuteria categoria);
 
 
-    
+        public List<Bisuteria>metodoSQL(String nombreInf);
+
 }

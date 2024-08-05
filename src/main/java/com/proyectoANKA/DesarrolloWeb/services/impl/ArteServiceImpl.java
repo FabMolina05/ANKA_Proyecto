@@ -50,4 +50,10 @@ public class ArteServiceImpl implements ArteServices {
     public void delete(Arte arte) {
         arteDao.delete(arte);
     }
+    
+    @Override
+    @Transactional (readOnly=true)
+    public List<Arte> metodoSQL(String nombreInf) {
+         return arteDao.consultaSQL(nombreInf);
+    }
 }

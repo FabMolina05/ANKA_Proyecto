@@ -5,6 +5,7 @@
 package com.proyectoANKA.DesarrolloWeb.services.impl;
 
 import com.proyectoANKA.DesarrolloWeb.dao.BisuteriaDao;
+
 import com.proyectoANKA.DesarrolloWeb.domain.Bisuteria;
 import com.proyectoANKA.DesarrolloWeb.services.BisuteriaServices;
 import java.util.List;
@@ -49,5 +50,11 @@ public class BisuteriaServiceImpl implements BisuteriaServices {
 
     public void delete(Bisuteria bisuteria) {
         bisuteriaDao.delete(bisuteria);
+    }
+    
+    @Override
+    @Transactional (readOnly=true)
+    public List<Bisuteria> metodoSQL(String nombreInf) {
+         return bisuteriaDao.consultaSQL(nombreInf);
     }
 }

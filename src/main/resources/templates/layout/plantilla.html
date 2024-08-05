@@ -137,16 +137,14 @@
         </section>
 
         <section th:fragment="searchBar">
-
-            <div class="container-fluid justify-content-center">
-                <div class="search-custom d-flex justify-content-center align-items-center" >
+            <div class="row justify-content-center">
+                <div class="search-custom d-flex align-items-center" >
                     <form action="/query" method="POST">
-                        <input class="search-color" type="text" placeholder="Search.." name="search">
-
+                        <input class="search-color" type="text" placeholder="Search.." name="search" th:value="${nombreInf}"
+                               th:name="nombreInf">
                     </form>
                     <i class="fa fa-search"></i>
                 </div>
-
             </div>
         </section>
     </body>

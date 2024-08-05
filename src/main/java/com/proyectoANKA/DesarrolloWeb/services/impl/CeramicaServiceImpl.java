@@ -51,4 +51,10 @@ public class CeramicaServiceImpl implements CeramicaServices {
     public void delete(Ceramica ceramica) {
         ceramicaDao.delete(ceramica);
     }
+    
+    @Override
+    @Transactional (readOnly=true)
+    public List<Ceramica> metodoSQL(String nombreInf) {
+         return ceramicaDao.consultaSQL(nombreInf);
+    }
 }

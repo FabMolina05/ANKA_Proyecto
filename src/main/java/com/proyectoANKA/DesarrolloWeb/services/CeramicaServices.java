@@ -4,6 +4,7 @@
  */
 package com.proyectoANKA.DesarrolloWeb.services;
 
+import com.proyectoANKA.DesarrolloWeb.domain.Arte;
 import com.proyectoANKA.DesarrolloWeb.domain.Ceramica;
 import java.util.List;
 
@@ -20,6 +21,7 @@ public interface CeramicaServices  {
     
         public void  delete(Ceramica ceramica);
 
+    public List<Ceramica>metodoSQL(String nombreInf);
 
     
 }
