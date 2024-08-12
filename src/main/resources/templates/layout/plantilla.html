@@ -43,12 +43,12 @@
                     </ul>
                 </div>
 
-                <div class="container justify-content-end">
-                    <a class="btn btn-color" type="button" th:href="@{/conocenos}" style="font-weight: 600">
+                <div class="container justify-content-end ">
+                    <a class="btn btn-color mx-3" type="button" th:href="@{/conocenos}" style="font-weight: 600">
                         Conocenos<i class="fas fa-arrow-up"></i>
                     </a>
 
-                    <a class="btn" th:href="@{/usuario/perfil}">
+                    <a class="btn" th:href="@{/login}">
                         <img src="https://firebasestorage.googleapis.com/v0/b/anka-c5d0c.appspot.com/o/Anka%2FuserLogo.jpeg?alt=media&token=8fdf78f9-9468-489b-86f6-4a860fd51cec" 
                              alt="logo" class="rounded-pill" style="width:40px;">
 
@@ -136,7 +136,7 @@
             </div>
         </section>
 
-        <section th:fragment="searchBar">
+        <section th:fragment="searchBar" class="my-3">
             <div class="row justify-content-center">
                 <div class="search-custom d-flex align-items-center" >
                     <form action="/query" method="POST">

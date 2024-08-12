@@ -10,6 +10,23 @@
 
 }
 
+.loginFont{
+    
+        font-family:"Tahoma", sans-serif, serif;
+        
+        
+ color:#FFC149;
+    
+    
+}
+
+.login-color{
+
+    background-color: #1D1D1D;
+    border: 2px solid #FFC149;
+
+}
+
 
 .nav-link-color{
 
