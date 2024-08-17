@@ -21,14 +21,25 @@ public class IndexController {
     @Autowired
     private CategoriaServices categoriaService;
 
+    @GetMapping("/")
+    public String listado(Model model) {
 
+        var producto = productoService.getProductos(true);
+        model.addAttribute("productos", producto);
+
+        var categoria = categoriaService.getCategorias(true);
+        model.addAttribute("categorias", categoria);
+
+        return "index";
+        
+    }
 
     @GetMapping("/conocenos")
     public String conocenos(Model model) {
 
         var categoria = categoriaService.getCategorias(true);
         model.addAttribute("categorias", categoria);
-        
+  
         return "/conocenos/fragmentos";
 
     }
