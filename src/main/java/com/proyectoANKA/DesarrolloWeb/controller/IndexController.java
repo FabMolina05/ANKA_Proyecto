@@ -11,38 +11,25 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-
 @Controller
 
 public class IndexController {
 
     @Autowired
     private ProductoServices productoService;
-    
+
     @Autowired
     private CategoriaServices categoriaService;
-   
 
-    @GetMapping("/")
-    public String listado(Model model) {
-       
+
+
+    @GetMapping("/conocenos")
+    public String conocenos(Model model) {
+
+        var categoria = categoriaService.getCategorias(true);
+        model.addAttribute("categorias", categoria);
         
-         var producto = productoService.getProductos(true);
-        model.addAttribute("productos",producto);
-        
-             var categoria = categoriaService.getCategorias(true);
-        model.addAttribute("categorias",categoria);
-        
-        
-   
-        return "index";
+        return "/conocenos/fragmentos";
+
     }
-    
-    
-    
-
-
-    
 }
-
-

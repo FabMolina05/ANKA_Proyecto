@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
       xmlns:th="http://www.thymeleaf.org">
-    
+
     <head th:replace="~{layout/plantilla :: head}">
         <title>Anka</title>
         <meta charset="UTF-8"/>
@@ -14,14 +14,10 @@
         <header th:replace="~{layout/plantilla :: header}"/>
 
         <section th:replace="~{producto/fragmentos :: MainHeaderArte}"/>
-                
-                <section th:replace="~{producto/fragmentos :: carrito}"/>
-        
-         
-        
-      
-        
+
+        <section th:replace="~{producto/fragmentos :: carrito}"/>
+
         <footer th:replace="~{layout/plantilla :: footer}"/>
-        
+
     </body>
 </html>
