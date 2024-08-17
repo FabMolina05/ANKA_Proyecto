@@ -13,13 +13,15 @@
 
         <header th:replace="~{layout/plantilla :: header}"/>
 
-             <section th:replace="~{bisuteria/fragmentos :: MainHeader}"/>
+            <section th:replace="~{producto/fragmentos :: MainHeaderBisuteria}"/>
                 
-                <h1 class="catalogo">Nuestro Catálogo</h1>
+                
         
-         <section th:replace="~{bisuteria/fragmentos :: carrito}"/>
+        <section th:replace="~{producto/fragmentos :: carrito}"/>
         
-         <footer th:replace="~{layout/plantilla :: footer}"/>
+      
+        
+        <footer th:replace="~{layout/plantilla :: footer}"/>
         
     </body>
 </html>

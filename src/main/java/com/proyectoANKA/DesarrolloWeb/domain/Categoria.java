@@ -8,26 +8,25 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="ceramica")
+@Table(name="categoria")
 
 
-public class Ceramica implements Serializable {
+public class Categoria implements Serializable {
     
     private static final long serialVersionUID = 1l;
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id_ceramica")
+    @Column(name="id_categoria")
 
     
     
-    private Long idCeramica;
-    private String nombre;
+    private Long idCategoria;
     private String descripcion;
-        private double precio;
-
-    private String rutaImagen;
     private boolean activo;
     
-  
+    @OneToMany
+    @JoinColumn(name="id_categoria",updatable=false)
+    List<Producto> productos;
+    
 }

@@ -32,15 +32,10 @@
                 </button>
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul class="navbar-nav" id="collapsibleNavbar">
-                        <li class="nav-item">
-                            <a class="nav-link px-5 nav-link-color" th:href="@{/bisuteria/listado}">Bisuteria</a>
+                        <li class="nav-item" th:each="c : ${categorias}">
+                            <a class="nav-link px-5 nav-link-color" th:href="@{/producto/listado/}+${c.idCategoria}">[[${c.descripcion}]]</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link px-5 nav-link-color" th:href="@{/ceramica/listado}">Cerámica</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link px-5 nav-link-color" th:href="@{/arte/listado}">Arte</a>
-                        </li>
+                        
                     </ul>
                 </div>
 
@@ -58,10 +53,6 @@
             </nav>
         </header>
 
-        <section th:fragment="Carrousel">
-
-
-        </section> 
 
         <footer th:fragment="footer" class="footer-color footer-text mt-5 p-2">
             <hr width="100%" color="#4F4F4F" size="5">

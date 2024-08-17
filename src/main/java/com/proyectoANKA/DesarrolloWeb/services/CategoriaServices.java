@@ -4,24 +4,22 @@
  */
 package com.proyectoANKA.DesarrolloWeb.services;
 
-import com.proyectoANKA.DesarrolloWeb.domain.Arte;
-import com.proyectoANKA.DesarrolloWeb.domain.Bisuteria;
+import com.proyectoANKA.DesarrolloWeb.domain.Categoria;
 import java.util.List;
 
-public interface BisuteriaServices  {
+public interface CategoriaServices  {
     
     // Se obtiene un listado de registros de categorías
     // en un ArrayList (pueden ser todas o solo las activas)
     
-    public List<Bisuteria> getBisuterias(boolean activos);
+    public List<Categoria> getCategorias(boolean activos);
     
-    public Bisuteria getBisuteria(Bisuteria categoria);
+    public Categoria getCategoria(Categoria categoria);
     
-    public void  save(Bisuteria categoria);
+    public void  save(Categoria categoria);
     
-        public void  delete(Bisuteria categoria);
+        public void  delete(Categoria categoria);
 
 
-        public List<Bisuteria>metodoSQL(String nombreInf);
-
+    
 }

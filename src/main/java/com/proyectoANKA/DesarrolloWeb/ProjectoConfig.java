@@ -48,7 +48,8 @@ public class ProjectoConfig implements WebMvcConfigurer{
                 .requestMatchers("/", "/index", "/errores/**",
                         "/carrito/**", "/reportes/**","/css/**",
                         "/registro/**", "/js/**", "/webjars/**",
-                        "/arte/listado", "/ceramica/listado", "/bisuteria/listado",
+                        "/producto/**",
+                        
                         "/search/**",
                         "/conocenos")
                         .permitAll()

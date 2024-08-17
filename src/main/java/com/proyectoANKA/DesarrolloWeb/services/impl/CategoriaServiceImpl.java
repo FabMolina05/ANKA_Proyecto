@@ -4,24 +4,24 @@
  */
 package com.proyectoANKA.DesarrolloWeb.services.impl;
 
-import com.proyectoANKA.DesarrolloWeb.dao.ArteDao;
-import com.proyectoANKA.DesarrolloWeb.domain.Arte;
-import com.proyectoANKA.DesarrolloWeb.services.ArteServices;
+import com.proyectoANKA.DesarrolloWeb.dao.CategoriaDao;
+import com.proyectoANKA.DesarrolloWeb.domain.Categoria;
+import com.proyectoANKA.DesarrolloWeb.services.CategoriaServices;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-public class ArteServiceImpl implements ArteServices {
+public class CategoriaServiceImpl implements CategoriaServices {
 
     @Autowired
-    private ArteDao arteDao;
+    private CategoriaDao categoriaDao;
 
     @Override
     @Transactional(readOnly = true)
-    public List<Arte> getArtes(boolean activos) {
-        var lista = arteDao.findAll();
+    public List<Categoria> getCategorias(boolean activos) {
+        var lista = categoriaDao.findAll();
         
         if (activos) {
             lista.removeIf(c -> !c.isActivo());
@@ -33,27 +33,21 @@ public class ArteServiceImpl implements ArteServices {
     @Override
     @Transactional(readOnly = true)
 
-    public Arte getArte(Arte arte) {
-        return arteDao.findById(arte.getIdArte()).orElse(null);
+    public Categoria getCategoria(Categoria categoria) {
+        return categoriaDao.findById(categoria.getIdCategoria()).orElse(null);
     }
 
     @Override
     @Transactional
 
-    public void save(Arte arte) {
-        arteDao.save(arte);
+    public void save(Categoria categoria) {
+        categoriaDao.save(categoria);
     }
 
     @Override
     @Transactional
 
-    public void delete(Arte arte) {
-        arteDao.delete(arte);
-    }
-    
-    @Override
-    @Transactional (readOnly=true)
-    public List<Arte> metodoSQL(String nombreInf) {
-         return arteDao.consultaSQL(nombreInf);
+    public void delete(Categoria categoria) {
+        categoriaDao.delete(categoria);
     }
 }
