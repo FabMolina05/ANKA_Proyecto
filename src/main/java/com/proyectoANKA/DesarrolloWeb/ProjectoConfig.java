@@ -49,6 +49,7 @@ public class ProjectoConfig implements WebMvcConfigurer{
                         "/carrito/**", "/reportes/**","/css/**",
                         "/registro/**", "/js/**", "/webjars/**",
                         "/arte/listado", "/ceramica/listado", "/bisuteria/listado",
+                        "/search/**",
                         "/conocenos")
                         .permitAll()
                 .requestMatchers(
@@ -59,8 +60,7 @@ public class ProjectoConfig implements WebMvcConfigurer{
                         "/categoria/listado",
                         "/usuario/listado"
                 ).hasAnyRole("ADMIN", "VENDEDOR")
-                .requestMatchers("/facturar/carrito")
-                .hasRole("USER")
+                
                 )
                 .formLogin((form) -> form
                 .loginPage("/login").permitAll())

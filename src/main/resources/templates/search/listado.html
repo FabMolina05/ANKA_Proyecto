@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
       xmlns:th="http://www.thymeleaf.org">
     
     <head th:replace="~{layout/plantilla :: head}">
@@ -14,7 +15,7 @@
 
              <section th:replace="~{search/fragmentos :: MainHeader}"/>
              
-                     <section th:replace="~{layout/plantilla :: searchBar}"/>
+                     <section th:replace="~{search/fragmentos :: searchBar}"/>
 
 
                 

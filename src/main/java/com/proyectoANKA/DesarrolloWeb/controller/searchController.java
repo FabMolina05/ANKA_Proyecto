@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.proyectoANKA.DesarrolloWeb.controller;
+import com.proyectoANKA.DesarrolloWeb.domain.Ceramica;
 import com.proyectoANKA.DesarrolloWeb.services.ArteServices;
 import com.proyectoANKA.DesarrolloWeb.services.BisuteriaServices;
 import com.proyectoANKA.DesarrolloWeb.services.CeramicaServices;
@@ -10,11 +11,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+@RequestMapping("/search")
 
-public class IndexController {
+public class searchController {
 
     @Autowired
     private CeramicaServices ceramicaService;
@@ -23,23 +27,36 @@ public class IndexController {
             @Autowired
     private BisuteriaServices bisuteriaService;
 
-    @GetMapping("/")
-    public String listado(Model model) {
-        var ceramica = ceramicaService.getCeramicas(true);
-        model.addAttribute("ceramicas", ceramica);
+    
+    
+    
+    @PostMapping("/query")
+    public String query(
+            @RequestParam(value="nombreInf") String nombreInf,
+            Model model) {
         
-         var arte = arteService.getArtes(true);
+        
+        var arte = arteService.metodoSQL(nombreInf);
+        
         model.addAttribute("artes", arte);
+
+        model.addAttribute("nombreInf", nombreInf);
         
-         var bisuteria = bisuteriaService.getBisuterias(true);
-        model.addAttribute("bisuterias",bisuteria);
+         var bisuteria = bisuteriaService.metodoSQL(nombreInf);
         
+        model.addAttribute("bisuterias", bisuteria );
+
+        model.addAttribute("nombreInf", nombreInf);
+
+         var ceramica = ceramicaService.metodoSQL(nombreInf);
         
-   
-        return "index";
+        model.addAttribute("ceramicas", ceramica);
+
+        model.addAttribute("nombreInf", nombreInf);
+
+
+        return "/search/listado";
     }
-    
-    
     
 
 

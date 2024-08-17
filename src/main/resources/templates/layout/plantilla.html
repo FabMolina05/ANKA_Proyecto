@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
       xmlns:th="http://www.thymeleaf.org">
 
 
@@ -136,17 +137,7 @@
             </div>
         </section>
 
-        <section th:fragment="searchBar" class="my-3">
-            <div class="row justify-content-center">
-                <div class="search-custom d-flex align-items-center" >
-                    <form action="/query" method="POST">
-                        <input class="search-color" type="text" placeholder="Search.." name="search" th:value="${nombreInf}"
-                               th:name="nombreInf">
-                    </form>
-                    <i class="fa fa-search"></i>
-                </div>
-            </div>
-        </section>
+        
     </body>
 
 
