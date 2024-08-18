@@ -26,8 +26,6 @@ document.onreadystatechange = function () {
         }
 
     }
-
-
 }
 
 function addCart(formulario) {
