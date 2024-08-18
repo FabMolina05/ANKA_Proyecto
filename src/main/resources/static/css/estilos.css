@@ -11,27 +11,23 @@
 }
 
 .loginFont{
-    
-        font-family:"Tahoma", sans-serif, serif;
-        
-        
- color:#FFC149;
-    
-    
+
+    font-family:"Tahoma", sans-serif, serif;
+
+
+    color:#FFC149;
+
+
 }
 
 .login-color{
-
     background-color: #1D1D1D;
     border: 2px solid #FFC149;
-
 }
 
 
 .nav-link-color{
-
     color: #FFF2CE;
-
 }
 
 .custom-link {
@@ -39,52 +35,35 @@
 }
 
 .footer-color{
-
     background-color: #1D1D1D;
-
 }
 
 footer-text{
-
     color: #FFC149;
-
-
 }
 
 .fig-color{
-
     color: #FFF2CE;
     text-align: center;
     font-size: 14px;
-
-
 }
-
 
 
 .nav-color{
-
     background-color: #1D1D1D;
-
 }
-
-
 
 figure {
     display: inline-block;
-
     margin: 20px; /* adjust as needed */
 }
+
 figure img {
     vertical-align: top;
 }
 
-
 .justify-container{
-
     align-content: center;
-
-
 }
 
 .end-content{
@@ -152,7 +131,7 @@ figure img {
 
 .card-img-custom{
 
-    background-position: left;
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 15vh;
@@ -174,6 +153,8 @@ figure img {
 
 .font-card{
     font-family:"Tahoma", sans-serif, serif;
+    font-size: 18px;
+    font-weight: 600;
 }
 
 .aboutus{
@@ -231,8 +212,8 @@ figure img {
 
     background-color:transparent;
     border: transparent;
-        color:#FFC149;
-        width: 220px;
+    color:#FFC149;
+    width: 220px;
 
 }
 
@@ -263,7 +244,7 @@ figure img {
 
 
 .btn-color:hover{
-    
+
     background-color: darkgoldenrod;
-    
+
 }

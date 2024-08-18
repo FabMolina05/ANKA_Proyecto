@@ -20,7 +20,7 @@
                     <p class="mini-box text-white" style="text-align: center">ANKA Collection</p>
                 </div>
                 <div class=""> 
-                   <p class="text-white font ">ARTE</p>
+                    <p class="text-white font ">ARTE</p>
                     <p class="text-white" style="padding-left: 9px; font-size: 20px"> Una colección perfecta para los amantes del arte de la pintura y el expresionismo</p>
 
                 </div>
@@ -65,15 +65,30 @@
         <section th:fragment="carrito" class="mb-4">
             <div class="row row-cols-3 p-4 justify-content-center">
                 <div th:each="p : ${productos}" 
-                     class="card m-4 " style="width: 20rem;">
-
-                    <div class="d-flex align-items-center px-2 m-1">
-
-
-                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" th:attr="data-nombre=${p.descripcion}, data-imagen=${p.rutaImagen}, data-descripcion=${p.detalle}">
-                            <img class="card-img-custom my-2" th:src="${p.rutaImagen}" alt="imageArte"></img>                            
-                        </button>
-
+                     class="card m-4" style="width: 20rem;">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <figure>
+                            <button type="button" class="btn p-0 m-0 border-0" data-bs-toggle="modal" data-bs-target="#exampleModal" th:attr="data-nombre=${p.descripcion}, data-imagen=${p.rutaImagen}, data-descripcion=${p.detalle}">
+                                <img class="card-img-custom" th:src="${p.rutaImagen}" alt="imageArte"></img>                            
+                            </button>
+                            <p class="font-card " >[[${p.descripcion}]] </p>
+                            <p class="font-card bg-transparent" style="font-weight: 500">$[[${p.precio}]] ([[${p.existencias}]])</p>
+                            <figcaption class="d-flex justify-content-around">
+                                <div>
+                                    <form class="d-inline-block">
+                                        <input type="hidden" name="idProducto" th:value="${p.idProducto}"/>
+                                        <input type="hidden" name="existencias" th:value="${p.existencias}"/>
+                                        <button class="btn btn-color my-3"  id="addCar" name="addCar" onclick="addCart(this.form)" type="button">
+                                            Añadir al carrito
+                                        </button>
+                                    </form>
+                                    <button type="button" class="btn btn-color d-inline-block" data-bs-toggle="modal" data-bs-target="#exampleModal" th:attr="data-nombre=${p.descripcion}, data-imagen=${p.rutaImagen}, data-descripcion=${p.detalle}">
+                                        Ver más
+                                    </button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
@@ -89,50 +104,17 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-color" data-bs-dismiss="modal">Cerrar</button>
-                                    </div>
-                                </div>
+                                    </div>                      
+                                </div>                              
                             </div>
                         </div>
-
-                        <p class="font-card p-3">[[${p.descripcion}]]</p>
-
-
                     </div>
-                    <div class="card-body font-card">
-
-                    </div>
-
-                    <div class="card-footer font-card bg-transparent">
-                        <p>$[[${p.precio}]]</p>
-
-                        <button class="btn btn-color my-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" th:attr="data-nombre=${p.descripcion}, data-imagen=${p.rutaImagen}, data-descripcion=${p.detalle}">
-                            Añadir al carrito</button>
-
-                        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-                            <div class="offcanvas-header">
-                                <h5 class="offcanvas-title"  id="offcanvasRightLabel">CARRITO</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                            </div>
-                            <div class="offcanvas-body">
-                                <p>
-                                    <img class="card-img-modal" id="offcanvas-image" alt="" style="display: block; margin: 0 auto;"></img>
-                                </p>
-                            </div>
-                            <button type="button" class="btn btn-color my-3" data-bs-dismiss="offcanvas">Continuar con la compra</button>
-                        </div>
-
-                        <button type="button" class="btn btn-color" data-bs-toggle="modal" data-bs-target="#exampleModal" th:attr="data-nombre=${p.descripcion}, data-imagen=${p.rutaImagen}, data-descripcion=${p.detalle}">
-                            Ver más
-                        </button>
-
-                    </div>
-
                 </div>
-
             </div>
+            
         </section>
-
+       
         <footer th:replace="~{layout/plantilla :: footer}"/>
-
+        
     </body>
 </html>
