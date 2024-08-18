@@ -30,6 +30,12 @@
     color: #FFF2CE;
 }
 
+.nav-link-color:hover{
+
+    color: dimgray;
+
+}
+
 .custom-link {
     font-size: 18px;
 }

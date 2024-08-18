@@ -5,6 +5,7 @@ import com.proyectoANKA.DesarrolloWeb.services.CategoriaServices;
 import com.proyectoANKA.DesarrolloWeb.domain.Producto;
 import com.proyectoANKA.DesarrolloWeb.services.ProductoServices;
 import com.proyectoANKA.DesarrolloWeb.services.FirebaseStorageService;
+import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,14 +39,29 @@ public class ProductoController {
     }
     
     
+    
      @GetMapping("/listado/{idCategoria}")
     public String listado(Model model, Categoria categoria) {
         
-        var productos = categoriaService.getCategoria(categoria)
-                                        .getProductos();
+        ArrayList<Producto> producto = new ArrayList();
+        for (Producto producto1 : categoriaService.getCategoria(categoria).getProductos()) {
+             
+            if (producto1.isActivo()) {
+                producto.add(producto1);
+            }
+            
+         }
+        
+        var productos = producto;
+       
         var categorias = categoriaService.getCategorias(true);
+        
+        
+        
         model.addAttribute("categorias",categorias);
-        model.addAttribute("productos",productos);
+        
+         model.addAttribute("productos",productos);
+         
 
         
          if (categoria.getIdCategoria()==1) {
@@ -58,11 +74,45 @@ public class ProductoController {
         
         
     }
+    
+    @GetMapping("/listadoCRUD/{idCategoria}")
+    public String listadoCRUD(Model model, Categoria categoria) {
+        
+        var productos = categoriaService.getCategoria(categoria)
+                                        .getProductos();
+        var categorias = categoriaService.getCategorias(true);
+        model.addAttribute("categorias",categorias);
+        model.addAttribute("productos",productos);
+        model.addAttribute("totalProductos", productos.size());
+
+        
+         
+             return "/producto/listadoCRUD";
+         
+        
+        
+    }
+    
+     @GetMapping("/listadoCRUD")
+    public String listadoCrud(Model model) {
+        
+        var productos = productoService.getProductos(false);
+        model.addAttribute("productos", productos);
+        
+        var categorias = categoriaService.getCategorias(true);
+        model.addAttribute("categorias", categorias);
+                model.addAttribute("totalProductos", productos.size());
+
+        
+
+        return "/producto/listadoCRUD";
+    }
+    
 
     @Autowired
     private FirebaseStorageService firebaseStorageService;
 
-    @PostMapping("/guardar")
+   @PostMapping("/guardar")
     public String guardar(Producto producto, @RequestParam("imagenFile") MultipartFile imagenFile) {
 
         if (!imagenFile.isEmpty()) {
@@ -73,7 +123,7 @@ public class ProductoController {
         }
         productoService.save(producto);
 
-        return "redirect:/producto/listado";
+        return "redirect:/producto/listadoCRUD";
     }
 
     @GetMapping("/eliminar/{idProducto}")
@@ -81,7 +131,7 @@ public class ProductoController {
 
         productoService.delete(producto);
 
-        return "redirect:/producto/listado";
+        return "redirect:/producto/listadoCRUD";
 
     }
 

@@ -3,7 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.proyectoANKA.DesarrolloWeb.controller;
+import com.proyectoANKA.DesarrolloWeb.domain.Producto;
+import com.proyectoANKA.DesarrolloWeb.services.CategoriaServices;
 import com.proyectoANKA.DesarrolloWeb.services.ProductoServices;
+import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,7 +24,9 @@ public class searchController {
     @Autowired
     private ProductoServices productoService;
 
-    
+       @Autowired
+    private CategoriaServices categoriaService;
+
     
     
     @PostMapping("/query")
@@ -30,9 +35,26 @@ public class searchController {
             Model model) {
         
         
-        var producto = productoService.metodoSQL(nombreInf);
+         ArrayList<Producto> producto = new ArrayList();
+        for (Producto producto1 : productoService.metodoSQL(nombreInf)) {
+             
+            if (producto1.isActivo()) {
+                producto.add(producto1);
+            }
+            
+         }
         
-        model.addAttribute("productos", producto);
+        var productos = producto;
+        
+        
+        
+        
+        var categorias = categoriaService.getCategorias(true);
+        model.addAttribute("categorias", categorias);
+        
+        
+        
+        model.addAttribute("productos", productos);
 
         model.addAttribute("nombreInf", nombreInf);
         
