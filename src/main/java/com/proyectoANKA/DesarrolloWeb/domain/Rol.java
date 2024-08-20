@@ -2,11 +2,12 @@ package com.proyectoANKA.DesarrolloWeb.domain;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
+import javax.validation.constraints.NotEmpty;
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name="rol")
+@Table(name = "rol")
 
 public class Rol implements Serializable {
 
@@ -15,9 +16,12 @@ public class Rol implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_rol")
+
     private Long idRol;
-    private String nombre;
-    @Column(name="id_usuario")
+    @Column(name = "id_Usuario")
     private Long idUsuario;
+
+    @NotEmpty
+    private String nombre;
 
 }

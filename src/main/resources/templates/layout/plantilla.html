@@ -35,7 +35,7 @@
                         <li class="nav-item" th:each="c : ${categorias}">
                             <a class="nav-link px-5 nav-link-color" th:href="@{/producto/listado/}+${c.idCategoria}">[[${c.descripcion}]]</a>
                         </li>
-                        
+
                         <li class="nav-item">
                             <a class="nav-link px-5 nav-link-color" th:href="@{/producto/listadoCRUD}">Productos</a>
                         </li>
@@ -54,9 +54,26 @@
 
                     </div>
 
-                    <a class="btn" th:href="@{/login}">
-                        <img src="https://firebasestorage.googleapis.com/v0/b/anka-c5d0c.appspot.com/o/Anka%2FuserLogo.jpeg?alt=media&token=8fdf78f9-9468-489b-86f6-4a860fd51cec" 
-                             alt="logo" class="rounded-pill" style="width:40px;">
+                    <div sec:authorize="!isAuthenticated()">
+                       
+                            <a class="btn loginFont" th:href="@{/login}">
+                                <i class="fas fa-right-to-bracket"></i>
+                            </a>   
+                        
+                    </div>
+
+                    <a class="navbar-nav" sec:authorize="isAuthenticated()">
+                        <li class="nav-item px-2 text-white">
+                            <img th:src="@{${session.usuarioImagen}}" class="rounded-circle" height="40" alt="alt"/>
+                          
+                        </li>
+                        <li class="nav-item my-auto">
+                            <form method='post' th:action='@{logout}'>
+                                <button class='btn btn-dark'>
+                                    <i class="fas fa-right-from-bracket "></i>
+                                </button>
+                            </form>
+                        </li>
 
                     </a>
                 </div>

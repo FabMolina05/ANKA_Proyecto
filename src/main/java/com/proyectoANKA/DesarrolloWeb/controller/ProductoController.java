@@ -116,10 +116,24 @@ public class ProductoController {
     public String guardar(Producto producto, @RequestParam("imagenFile") MultipartFile imagenFile) {
 
         if (!imagenFile.isEmpty()) {
-            productoService.save(producto);
-            String rutaImagen = firebaseStorageService.cargaImagen(imagenFile, "producto", producto.getIdProducto());
+            
+            if (producto.getCategoria().getIdCategoria()==1) {
+                productoService.save(producto);
+            String rutaImagen = firebaseStorageService.cargaImagen(imagenFile, "bisuteria", producto.getIdProducto());
 
             producto.setRutaImagen(rutaImagen);
+            }else if (producto.getCategoria().getIdCategoria()==2) {
+                productoService.save(producto);
+            String rutaImagen = firebaseStorageService.cargaImagen(imagenFile, "ceramica", producto.getIdProducto());
+
+            producto.setRutaImagen(rutaImagen);
+            }else {
+                productoService.save(producto);
+            String rutaImagen = firebaseStorageService.cargaImagen(imagenFile, "arte", producto.getIdProducto());
+
+            producto.setRutaImagen(rutaImagen);
+            }
+            
         }
         productoService.save(producto);
 

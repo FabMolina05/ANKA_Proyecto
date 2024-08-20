@@ -3,6 +3,7 @@ package com.proyectoANKA.DesarrolloWeb.domain;
 import jakarta.persistence.*;
 import java.io.Serializable;
 import java.util.List;
+import javax.validation.constraints.NotEmpty;
 import lombok.Data;
 
 @Data
@@ -16,8 +17,12 @@ public class Usuario implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_usuario")
+
     private Long idUsuario;
+    @NotEmpty
     private String username;
+        @NotEmpty
+
     private String password;
     private String nombre;
     private String apellidos;
@@ -27,6 +32,7 @@ public class Usuario implements Serializable {
     private boolean activo;
 
     @OneToMany
-    @JoinColumn(name = "id_usuario")
-    List<Rol> roles;
+    @JoinColumn(name = "id_usuario", updatable = false)
+    private List<Rol> roles;
+
 }
