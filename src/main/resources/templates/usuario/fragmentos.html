@@ -3,7 +3,7 @@
 <!-- Contiene los fragmentos que ocupa el listado de categorías -->
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-            xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
 
       xmlns:th="http://www.thymeleaf.org">
 
@@ -13,8 +13,8 @@
 
     </head>
     <body class="body-color">
-     
-      
+
+
 
         <section th:fragment="agregarUsuario">
             <div id="agregarUsuario" 
@@ -91,7 +91,7 @@
                                             <th>Nombre</th>
                                             <th>Apellidos</th>
                                             <th>Imagen</th>
-                                            
+
                                             <th></th></tr>
                                     </thead>
                                     <tbody>
@@ -102,8 +102,8 @@
                                             <td>[[${usuario.apellidos}]]</td>
                                             <td><img th:src="@{${usuario.rutaImagen}}" alt="your image" height="40"/></td>
 
-                                            
-                                          
+
+
 
                                             <td sec:authorize="hasRole('ROLE_ADMIN')">
                                                 <a th:href="@{/usuario/eliminar/}+${usuario.idUsuario}"
@@ -127,20 +127,20 @@
                                 <h4 class="fs-2"><i class="fas fa-users"></i> [[${totalUsuarios}]]</h4>
                             </div>
                         </div>  
-                         <div class="card text-center mb-3">   
-                        <button 
-                            type="button" 
-                            class="btn btn-color btn-block" 
-                            data-bs-toggle="modal" 
-                            data-bs-target="#agregarUsuario">
-                            <i class="fas fa-plus"></i> Agregar
-                        </button>
+                        <div class="card text-center mb-3">   
+                            <button 
+                                type="button" 
+                                class="btn btn-color btn-block" 
+                                data-bs-toggle="modal" 
+                                data-bs-target="#agregarUsuario">
+                                <i class="fas fa-plus"></i> Agregar
+                            </button>
+                        </div>
                     </div>
-                </div>
-                        
-                    </div>
+
                 </div>
             </div>
+           
         </section>
 
         <!-- 4 Fragmento que se utiliza en la página modifca.html -->
@@ -156,7 +156,7 @@
                         <input type="hidden" name="password" th:field="*{password}"/>
                         <input type="hidden" name="rutaImagen" th:field="*{rutaImagen}"/>
 
-                     
+
                         <section th:replace="~{usuario/fragmentos :: botonesEditar}"/>
                         <div id=details>
                             <div class="container">
@@ -167,14 +167,14 @@
                                                 <h4>Actualizar</h4>
                                             </div>
                                             <div class="card-body">
-                                                
+
                                                 <div class="mb-3">
                                                     <label for="nombre">Usuario</label>
                                                     <input type="text" class="form-control" 
                                                            name="username" th:field="*{username}"
                                                            required="true">
                                                 </div>
-                                                
+
                                                 <div class="mb-3">
                                                     <label for="nombre">Nombre</label>
                                                     <input type="text" class="form-control" 
@@ -237,6 +237,6 @@
                 </div>
             </div>
         </section>
-    
+
     </body>
 </html>
