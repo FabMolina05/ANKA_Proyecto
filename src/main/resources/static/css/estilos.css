@@ -220,14 +220,10 @@ figure img {
 }
 
 .search-color{
-
-
-
+    
     background-color:transparent;
     border: transparent;
     color:#FFC149;
-    width: 220px;
-
 }
 
 ::placeholder {

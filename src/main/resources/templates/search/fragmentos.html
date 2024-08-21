@@ -33,71 +33,74 @@
 
             </div>
         </section>
-        
-        
+
+
 
         <section th:fragment="carrito" class="mb-4">
             <div class="row row-cols-3 p-4 justify-content-center">
                 <div th:if="${productos != null and !productos.empty}">
-                <div th:each="p : ${productos}" 
-                     class="card m-4 " style="width: 20rem;">
+                    <div th:each="p : ${productos}" 
+                         class="card m-4 " style="width: 20rem;">
 
-                    <div class="d-flex align-items-center px-2 m-1">
+                        <div class="d-flex align-items-center px-2 m-1">
 
-                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" th:attr="data-nombre=${p.descripcion}, data-imagen=${p.rutaImagen}, data-descripcion=${p.detalle}">
-                            <img class="card-img-custom my-2" th:src="${p.rutaImagen}" alt="imageBisuteria"></img>
-                        </button>
+                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" th:attr="data-nombre=${p.descripcion}, data-imagen=${p.rutaImagen}, data-descripcion=${p.detalle}">
+                                <img class="card-img-custom my-2" th:src="${p.rutaImagen}" alt="imageBisuteria"></img>
+                            </button>
 
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">    
-                                        <p>
-                                            <img class="card-img-modal" id="modal-image" alt="" style="display: block; margin: 0 auto;"></img>
-                                        </p>
-                                        <p id="modal-body-descripcion" style="text-align: center"></p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-color" data-bs-dismiss="modal">Cerrar</button>
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">    
+                                            <p>
+                                                <img class="card-img-modal" id="modal-image" alt="" style="display: block; margin: 0 auto;"></img>
+                                            </p>
+                                            <p id="modal-body-descripcion" style="text-align: center"></p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-color" data-bs-dismiss="modal">Cerrar</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            <p class="font-card p-3">[[${p.descripcion}]]</p>
                         </div>
-                        <p class="font-card p-3">[[${p.descripcion}]]</p>
-                    </div>
-                    <div class="card-body font-card">
-                    </div>
-                    <div class="card-footer font-card bg-transparent">
-                        <p>$ [[${p.precio}]]</p>
+                        <div class="card-body font-card">
+                        </div>
+                        <div class="card-footer font-card bg-transparent">
+                            <p>$ [[${p.precio}]]</p>
 
-                        <a th:href="@{/compra/listado}" class="btn btn-color my-3">Añadir al carrito</a>
+                            <a th:href="@{/compra/listado}" class="btn btn-color my-3">Añadir al carrito</a>
 
-                        <button type="button" class="btn btn-color my-3" data-bs-toggle="modal" data-bs-target="#exampleModal" th:attr="data-nombre=${p.descripcion}, data-imagen=${p.rutaImagen}, data-descripcion=${p.detalle}">
-                            Ver más
-                        </button>
+                            <button type="button" class="btn btn-color my-3" data-bs-toggle="modal" data-bs-target="#exampleModal" th:attr="data-nombre=${p.descripcion}, data-imagen=${p.rutaImagen}, data-descripcion=${p.detalle}">
+                                Ver más
+                            </button>
+                        </div>
                     </div>
+
                 </div>
-                
+
+                <div class="text-center p-2 loginFont" th:if="${productos == null or productos.empty}">
+                    <span>No se encontraron busquedas</span>
                 </div>
-                
-                  <div class="text-center p-2 loginFont" th:if="${productos == null or productos.empty}">
-                                <span>No se encontraron busquedas</span>
-                            </div>
             </div>
         </section>
 
         <section th:fragment="searchBar" class="my-3">
             <div class="row justify-content-center">
-                <div class="search-custom d-flex align-items-center" >
-                    <form th:action="@{/search/query}" method="post">
-                        <input class="search-color" type="text" placeholder="Search.." name="search" th:value="${nombreInf}"
+                <div class="search-custom d-flex align-items-center">
+                    <form th:action="@{/search/query}" method="post" class="d-flex w-100">
+                        <input class="search-color flex-grow-1" type="text" placeholder="Search.." name="search" th:value="${nombreInf}"
                                th:name="nombreInf"/>
+                        <button type="submit" class="btn p-0 m-0 search-color">
+                            <i class="fa fa-search"></i>
+                        </button>
                     </form>
-                    <i class="fa fa-search"></i>
+
                 </div>
             </div>
         </section>
