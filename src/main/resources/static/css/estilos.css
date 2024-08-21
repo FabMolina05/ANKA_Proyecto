@@ -14,10 +14,7 @@
 .loginFont{
 
     font-family:"Tahoma", sans-serif, serif;
-
-
     color:#FFC149;
-
 
 }
 .btn-logout{
@@ -220,7 +217,7 @@ figure img {
 }
 
 .search-color{
-    
+
     background-color:transparent;
     border: transparent;
     color:#FFC149;
@@ -259,7 +256,14 @@ figure img {
 }
 
 .card-border{
-
-
+    
     border: #FFC149;
+
+}
+
+.payment-font {
+    
+    font-size: 18px;
+    color: white;
+    
 }

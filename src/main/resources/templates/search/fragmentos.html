@@ -38,54 +38,56 @@
 
         <section th:fragment="carrito" class="mb-4">
             <div class="row row-cols-3 p-4 justify-content-center">
-                <div th:if="${productos != null and !productos.empty}">
-                    <div th:each="p : ${productos}" 
-                         class="card m-4 " style="width: 20rem;">
-
-                        <div class="d-flex align-items-center px-2 m-1">
-
-                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" th:attr="data-nombre=${p.descripcion}, data-imagen=${p.rutaImagen}, data-descripcion=${p.detalle}">
-                                <img class="card-img-custom my-2" th:src="${p.rutaImagen}" alt="imageBisuteria"></img>
+                <div th:each="p : ${productos}" 
+                     class="card m-4" style="width: 20rem;">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <figure>
+                            <button type="button" class="btn p-0 m-0 border-0" data-bs-toggle="modal" data-bs-target="#exampleModal" th:attr="data-nombre=${p.descripcion}, data-imagen=${p.rutaImagen}, data-descripcion=${p.detalle}">
+                                <img class="card-img-custom" th:src="${p.rutaImagen}" alt="imageArte"></img>                            
                             </button>
-
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">    
-                                            <p>
-                                                <img class="card-img-modal" id="modal-image" alt="" style="display: block; margin: 0 auto;"></img>
-                                            </p>
-                                            <p id="modal-body-descripcion" style="text-align: center"></p>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-color" data-bs-dismiss="modal">Cerrar</button>
-                                        </div>
-                                    </div>
+                            <p class="font-card " >[[${p.descripcion}]] </p>
+                            <p class="font-card bg-transparent" style="font-weight: 500">$[[${p.precio}]] ([[${p.existencias}]])</p>
+                            <figcaption class="d-flex justify-content-around">
+                                <div>
+                                    <form class="d-inline-block">
+                                        <input type="hidden" name="idProducto" th:value="${p.idProducto}"/>
+                                        <input type="hidden" name="existencias" th:value="${p.existencias}"/>
+                                        <button class="btn btn-color my-3"  id="addCar" name="addCar" onclick="addCart(this.form)" type="button">
+                                            Añadir al carrito
+                                        </button>
+                                    </form>
+                                    <button type="button" class="btn btn-color d-inline-block" data-bs-toggle="modal" data-bs-target="#exampleModal" th:attr="data-nombre=${p.descripcion}, data-imagen=${p.rutaImagen}, data-descripcion=${p.detalle}">
+                                        Ver más
+                                    </button>
                                 </div>
+                            </figcaption>
+                        </figure>
+
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">    
+                                        <p>
+                                            <img class="card-img-modal" id="modal-image" alt="" style="display: block; margin: 0 auto;"></img>
+                                        </p>
+                                        <p id="modal-body-descripcion" style="text-align: center"></p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-color" data-bs-dismiss="modal">Cerrar</button>
+                                    </div>                      
+                                </div>                              
                             </div>
-                            <p class="font-card p-3">[[${p.descripcion}]]</p>
                         </div>
-                        <div class="card-body font-card">
-                        </div>
-                        <div class="card-footer font-card bg-transparent">
-                            <p>$ [[${p.precio}]]</p>
 
-                            <a th:href="@{/compra/listado}" class="btn btn-color my-3">Añadir al carrito</a>
-
-                            <button type="button" class="btn btn-color my-3" data-bs-toggle="modal" data-bs-target="#exampleModal" th:attr="data-nombre=${p.descripcion}, data-imagen=${p.rutaImagen}, data-descripcion=${p.detalle}">
-                                Ver más
-                            </button>
-                        </div>
                     </div>
-
                 </div>
 
                 <div class="text-center p-2 loginFont" th:if="${productos == null or productos.empty}">
-                    <span>No se encontraron busquedas</span>
+                    <span>No se encontraron búsquedas</span>
                 </div>
             </div>
         </section>

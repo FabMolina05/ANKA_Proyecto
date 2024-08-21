@@ -1,8 +1,9 @@
-
 package com.proyectoANKA.DesarrolloWeb;
 
+import com.paypal.base.rest.APIContext;
 import java.util.Locale;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,10 +22,11 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
+
 @Configuration
-public class ProjectoConfig implements WebMvcConfigurer{
-    
- @Bean
+public class ProjectoConfig implements WebMvcConfigurer {
+
+    @Bean
 
     public LocaleResolver localeResolver() {
         var slr = new SessionLocaleResolver();
@@ -47,7 +49,7 @@ public class ProjectoConfig implements WebMvcConfigurer{
     public void addInterceptors(InterceptorRegistry registro) {
         registro.addInterceptor(localeChangeInterceptor());
     }
-  
+
 
     /* Metodo para enviar correos de activacion */
     @Bean("messageSource")
@@ -58,31 +60,29 @@ public class ProjectoConfig implements WebMvcConfigurer{
         return messageSource;
     }
 //    
-     /* Los siguiente métodos son para implementar el tema de seguridad dentro del proyecto */
+
+    /* Los siguiente métodos son para implementar el tema de seguridad dentro del proyecto */
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("index");
         registry.addViewController("/index").setViewName("index");
         registry.addViewController("/login").setViewName("login");
         registry.addViewController("/registro/nuevo").setViewName("/registro/nuevo");
- }
+    }
 
-@Bean
+    @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((request) -> request
                 .requestMatchers("/", "/index", "/errores/**",
-                        "/carrito/**", "/reportes/**","/css/**",
+                        "/carrito/**", "/reportes/**", "/css/**",
                         "/registro/**", "/js/**", "/webjars/**",
                         "/producto/**",
                         "/search/**",
-                        "/conocenos")
-                        .permitAll()
+                        "/conocenos", "/payment/**")
+                .permitAll()
                 .requestMatchers(
                         "/usuario/**"
-                        
-                
-                        
                 ).hasRole("ADMIN")
                 .requestMatchers("/facturar/carrito")
                 .hasRole("USER")
@@ -93,18 +93,29 @@ public class ProjectoConfig implements WebMvcConfigurer{
         return http.build();
     }
 
-
-    
     @Autowired
     private UserDetailsService userDetailsService;
-    
+
     @Autowired
-    public void configurerGlobal(AuthenticationManagerBuilder build) throws Exception{
-        
+    public void configurerGlobal(AuthenticationManagerBuilder build) throws Exception {
+
         build.userDetailsService(userDetailsService).
                 passwordEncoder(new BCryptPasswordEncoder());
-        
+
     }
-    
-    
+
+    @Value("${paypal.client-id}")
+    private String clientId;
+
+    @Value("${paypal.client-secret}")
+    private String clientSecret;
+
+    @Value("${paypal.mode}")
+    private String mode;
+
+    @Bean
+    public APIContext apiContext() {
+        return new APIContext(clientId, clientSecret, mode);
+    }
+
 }
