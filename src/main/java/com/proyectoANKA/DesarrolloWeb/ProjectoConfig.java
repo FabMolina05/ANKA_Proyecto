@@ -79,12 +79,12 @@ public class ProjectoConfig implements WebMvcConfigurer {
                         "/registro/**", "/js/**", "/webjars/**",
                         "/producto/**",
                         "/search/**",
-                        "/conocenos", "/payment/**")
+                        "/conocenos")
                 .permitAll()
                 .requestMatchers(
                         "/usuario/**"
                 ).hasRole("ADMIN")
-                .requestMatchers("/facturar/carrito")
+                .requestMatchers("/facturar/carrito", "/payment/**", "/paypal/**")
                 .hasRole("USER")
                 )
                 .formLogin((form) -> form

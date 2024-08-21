@@ -19,14 +19,14 @@
                     Ver carrito [[${listaTotal}]]
                 </button>
             </form>
-        </div>     
+        </div>
 
         <section th:fragment="listadoCarrito" id="items">
             <div class="container">
                 <div class="row">
                     <div class="col-md-9">
                         <div class="card">
-                            <div class="card-header">
+                            <div class="card-header login-color loginFont">
                                 <h4>CARRITO</h4>
                             </div>
                             <div th:if="${items != null and !items.empty}">
@@ -75,7 +75,7 @@
                             <div class="card-body">
                                 <h3>Total Compra</h3>
                                 <h4><i class="fas fa-money-bill-alt"></i> ¢[[${#numbers.formatDecimal(carritoTotal,1,'DEFAULT',2,'DEFAULT')}]]</h4>
-                                <h4><i class="far fa-money-bill-alt"></i> ¢[[${#numbers.formatDecimal(totalDolares,1,'DEFAULT',2,'DEFAULT')}]]</h4>
+                                <h4><i class="far fa-money-bill-alt"></i> $[[${#numbers.formatDecimal(totalDolares,1,'DEFAULT',2,'DEFAULT')}]]</h4>
                                 <p>$1 = ¢[[${#numbers.formatDecimal(precioVenta,1,'DEFAULT',2,'DEFAULT')}]]</p>
                             </div>
                         </div>
@@ -87,22 +87,22 @@
                                 </a>
                             </div>
                         </div>
-                        
-                        <div class="card text-center bg-info text-white mb-3">
-                            <div class="card-body">
+
+                        <div class="card text-center text-white mb-3" style="background-color: #FFC149">
+                            <div class="card-body ">
                                 <form action="/payment/facturar"
                                       method="get">
                                     <input type="hidden"
                                            name='total'
                                            th:value='${totalDolares}'/>
-                                    <button class='btn btn-info'
+                                    <button class='btn btn-color'
                                             type='submit'>
                                         <i class='fab fa-cc-paypal'></i> Facturar
                                     </button>
                                 </form>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
