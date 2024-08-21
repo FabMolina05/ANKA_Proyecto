@@ -36,7 +36,7 @@
                             <a class="nav-link px-5 nav-link-color" th:href="@{/producto/listado/}+${c.idCategoria}">[[${c.descripcion}]]</a>
                         </li>
 
-                        <li class="nav-item">
+                        <li class="nav-item" sec:authorize="hasRole('ROLE_ADMIN')">
                             <a class="nav-link px-5 nav-link-color" th:href="@{/producto/listadoCRUD}">Productos</a>
                         </li>
 
@@ -55,29 +55,47 @@
                     </div>
 
                     <div sec:authorize="!isAuthenticated()">
-                       
-                            <a class="btn loginFont" th:href="@{/login}">
-                                <i class="fas fa-right-to-bracket"></i>
-                            </a>   
-                        
+
+                        <a class="btn loginFont" th:href="@{/login}">
+                            <i class="fas fa-right-to-bracket"></i>
+                        </a>   
+
                     </div>
 
                     <a class="navbar-nav" sec:authorize="isAuthenticated()">
                         <li class="nav-item px-2 text-white">
-                            <img th:src="@{${session.usuarioImagen}}" class="rounded-circle" height="40" alt="alt"/>
-                          
-                        </li>
-                        <li class="nav-item my-auto">
-                            <form method='post' th:action='@{logout}'>
-                                <button class='btn btn-dark'>
-                                    <i class="fas fa-right-from-bracket "></i>
-                                </button>
-                            </form>
-                        </li>
+                            <img th:src="@{${session.usuarioImagen}}" class="rounded-circle" height="40" alt="alt" type="button" data-bs-toggle="offcanvas" data-bs-target="#sideBar"/>
 
+                        </li>
                     </a>
                 </div>
             </nav>
+
+            <div class="offcanvas offcanvas-end body-color loginFont" id="sideBar">
+                <div class="offcanvas-header">
+                    <h1 class="offcanvas-title"><span sec:authentication='name'>JHON</span></h1>
+                    <button type="button" class="btn-close btn-color" data-bs-dismiss="offcanvas"></button>
+                </div>
+                <div class="offcanvas-body" sec:authorize="hasRole('ROLE_ADMIN')">
+                    <div class="col my-3">
+                        <a th:href="@{/usuario/listado}" class="btn btn-color">
+                            <div class="py-4">
+                                Listado de Usuarios
+                            </div>
+                        </a>
+                    </div>
+                   
+                </div>
+                <div>
+                         <form method='post' th:action='@{logout}'>
+                              <button style="max-height: 60px; min-height: 60px" class="btn btn-color d-flex align-items-center justify-content-center order-2 w-100">
+                                 <p>Logout</p>
+                                  
+                                    </button>
+                         </form>
+                    </div>
+            </div>
+
         </header>
 
 

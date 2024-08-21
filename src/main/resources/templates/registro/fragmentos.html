@@ -68,6 +68,7 @@
                 <div class="col-md-3">
                     <form method="POST" th:action="@{/registro/activar}" th:object="${usuario}" class="was-validated" enctype="multipart/form-data">
                         <input type="hidden" name="idUsuario" th:field="*{idUsuario}"/>
+                         <input type="hidden" name="rutaImagen" th:field="*{rutaImagen}"/>
                         <div class="card loginFont login-color">
                             <div class="card-header align-items-center">
                                 <h4>Activar</h4>

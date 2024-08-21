@@ -75,18 +75,15 @@ public class ProjectoConfig implements WebMvcConfigurer{
                         "/carrito/**", "/reportes/**","/css/**",
                         "/registro/**", "/js/**", "/webjars/**",
                         "/producto/**",
-                        
                         "/search/**",
                         "/conocenos")
                         .permitAll()
                 .requestMatchers(
-                        "/usuario/modifica"
+                        "/usuario/**"
+                        
+                
+                        
                 ).hasRole("ADMIN")
-                .requestMatchers(
-                      
-                        "/categoria/listado",
-                        "/usuario/listado"
-                ).hasAnyRole("ADMIN", "VENDEDOR")
                 .requestMatchers("/facturar/carrito")
                 .hasRole("USER")
                 )
