@@ -27,7 +27,7 @@
                     <div class="col-md-9">
                         <div class="card">
                             <div class="card-header login-color loginFont">
-                                <h4>CARRITO</h4>
+                                <h4 style="font-weight: bold">CARRITO</h4>
                             </div>
                             <div th:if="${items != null and !items.empty}">
                                 <table class="table table-stryped">
@@ -50,18 +50,17 @@
                                             <td class="text-center">[[${item.cantidad}]]</td>
                                             <td class="text-center">[[${item.cantidad*item.precio}]]</td>
                                             <td>
+                                                <a th:href="@{/carrito/modificar/}+${item.idProducto}"
+                                                   class="btn btn-success">
+                                                    <i class='fas fa-pencil'></i> Actualizar
+                                                </a>
                                                 <a th:href="@{/carrito/eliminar/}+${item.idProducto}"
                                                    class="btn btn-danger">
                                                     <i class='fas fa-trash'></i> Eliminar
                                                 </a>
                                             </td>
-                                            <td>
-                                                <a th:href="@{/carrito/modificar/}+${item.idProducto}"
-                                                   class="btn btn-success">
-                                                    <i class='fas fa-pencil'></i> Actualizar
-                                                </a>
-                                            </td>
                                         </tr>
+
                                     </tbody>
                                 </table>
                             </div>
@@ -79,14 +78,7 @@
                                 <p>$1 = ¢[[${#numbers.formatDecimal(precioVenta,1,'DEFAULT',2,'DEFAULT')}]]</p>
                             </div>
                         </div>
-                        <div class="card text-center bg-primary text-white mb-3">
-                            <div class="card-body">
-                                <a th:href="@{/}" 
-                                   class="btn btn-primary">
-                                    <i class="fas fa-reply"></i> Seguir comprando
-                                </a>
-                            </div>
-                        </div>
+
 
                         <div class="card text-center text-white mb-3" style="background-color: #FFC149">
                             <div class="card-body ">
@@ -100,6 +92,16 @@
                                         <i class='fab fa-cc-paypal'></i> Facturar
                                     </button>
                                 </form>
+                            </div>
+                        </div>
+
+
+                        <div class="card text-center bg-primary text-white mb-3">
+                            <div class="card-body">
+                                <a th:href="@{/}" 
+                                   class="btn btn-primary">
+                                    <i class="fas fa-reply"></i> Seguir comprando
+                                </a>
                             </div>
                         </div>
 
