@@ -31,8 +31,8 @@ public class PaypalController {
     ) {
         if (total > 0) {
             try {
-                String urlCancel = "http://localhost/payment/cancel";
-                String urlSuccess = "http://localhost/payment/success";
+                String urlCancel = "http://34.121.132.242/payment/cancel";
+                String urlSuccess = "http://34.121.132.242/payment/success";
                 Payment payment = paypalService.createPayment(
                         total,
                         "USD",
